@@ -10,7 +10,7 @@ function Admin() {
     return(
         <Fragment>
             <Box p='20px'>
-                <Box pb='3%'>
+                <Box pb={['10%','10%','3%','3%']}>
                     <UnorderedList color='fontColorFirst' fontWeight='bold' spacing={1} cursor='pointer'>
                         <ListItem layerStyle='effectLineBottom' onClick={handlePage}>Lorem ipsum dolor sit amet</ListItem>
                         <ListItem layerStyle='effectLineBottom'>Consectetur adipiscing elit</ListItem>
@@ -22,16 +22,16 @@ function Admin() {
                 <VStack justify='flex-start'><Divider boxSize='100%'/></VStack>
 
                 <Box py='3%'>
-                    <Heading color='white' fontSize='2xl'>Create new book</Heading>
+                    <Heading color='white' fontSize='2xl' my={['5%','5%',null,null]}>Create new book</Heading>
 
                     <FormControl id="first-name" isRequired mt='2%'>
                         <FormLabel color='white' opacity='.8'>Title</FormLabel>
-                        <Input w='30%' bg='#161E20' border='none' color='white' opacity='.8' />
+                        <Input layerStyle='inputStyle' />
 
                         <FormLabel color='white' opacity='.8' mt='2%' htmlFor='author'>Author</FormLabel>
-                        <Input w='30%' bg='#161E20' border='none' color='white' opacity='.8' id='author' /> <br/>
+                        <Input layerStyle='inputStyle' id='author' /> <br/>
 
-                        <Button mt='3%' bg='#161E20' color='white' opacity='.8' _hover={{background : '#28373F'}}>Create Book</Button>
+                        <Button mt={['8%','8%','3%','3%']} bg='#161E20' color='white' opacity='.8' _hover={{background : '#28373F'}}>Create Book</Button>
                     </FormControl>
                 </Box>
             </Box>
