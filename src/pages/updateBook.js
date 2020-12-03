@@ -12,10 +12,10 @@ function PageUpdateBook() {
 
             <FormControl id="first-name" isRequired mt='2%'>
                 <FormLabel color='white' opacity='.8'>Title</FormLabel>
-                <Input w='30%' bg='#161E20' border='none' color='white' opacity='.8' />
+                <Input layerStyle='inputStyle' />
 
                 <FormLabel color='white' opacity='.8' mt='2%' htmlFor='author'>Author</FormLabel>
-                <Input w='30%' bg='#161E20' border='none' color='white' opacity='.8' id='author' /> <br/>
+                <Input layerStyle='inputStyle' id='author' />
 
                 <Button mt='3%' bg='#161E20' color='white' opacity='.8' _hover={{background : '#28373F'}}>Save Book</Button> <br/>
                 <Button mt='1%' bg='#161E20' color='white' opacity='.8' _hover={{background : '#28373F'}}>Delete Book</Button>
