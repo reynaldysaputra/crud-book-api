@@ -40,6 +40,13 @@ const myTheme = {
             _hover : {
                 textDecoration : 'underline'
             }
+        },
+        inputStyle : {
+            w:['80%','80%','30%','30%'],
+            bg:'#161E20',
+            border:'none',
+            color:'white',
+            opacity:'.8' 
         }
     }
 }
