@@ -7,10 +7,12 @@ import Blog from '../pages/blog';
 import Admin from '../pages/admin';
 import Navigation from '../component/navigation';
 import PageUpdateBook from '../pages/updateBook';
+import { ReactQueryDevtools } from 'react-query-devtools';
 
 function App() {
     return(
         <ChakraProvider theme={chakraTheme}>
+            <ReactQueryDevtools initialIsOpen={true} />
             <BrowserRouter>
                 <Grid w='full' gridTemplateColumns={{md:'100%', lg:'15% 85%', xl:'15% 85%'}} mt='1%'>
                     <Box borderRight='2px solid #0C151D'>
@@ -22,7 +24,7 @@ function App() {
                             <Route path='/' exact component={Home} />
                             <Route path='/blog' exact  component={Blog} />
                             <Route path='/admin' component={Admin} />
-                            <Route path='/blog/123' component={PageUpdateBook} />
+                            <Route path='/blog/:id' component={PageUpdateBook} />
                         </Switch>
                     </Box>
                 </Grid>
