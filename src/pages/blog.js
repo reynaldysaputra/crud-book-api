@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import { SimpleGrid } from '@chakra-ui/react';
-import {Book} from '../component/book';
+import {Book} from '../components/book';
 import usePost from '../hook/usePost';
-import Loading from '../component/loading';
+import Loading from '../components/loading';
 
 function Blog() {
-    const {data:DataBook, isLoading} = usePost('dataBook');
+    const {data:DataBook, isLoading} = usePost(['dataBook', 'GET']);
 
     return(
         <Fragment>

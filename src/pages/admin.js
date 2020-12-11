@@ -2,16 +2,16 @@ import React, { Fragment } from 'react';
 import { Box, Divider, Heading, ListItem, UnorderedList, VStack, FormControl, Input, FormLabel, Button, SimpleGrid } from '@chakra-ui/react';
 import {useHistory} from 'react-router-dom';
 import usePost from '../hook/usePost';
-import useMutationPost from '../hook/useMutationPost';
+import useMutationBook from '../hook/useMutationBook';
 import {useForm} from 'react-hook-form';
-import Loading from '../component/loading';
+import Loading from '../components/loading';
 import UniqueNumber from 'unique-number';
 
 function Admin() {
     const pageHistory = useHistory();
-    const {data:DataBook, isLoading:loadingData} = usePost('dataBook');
-    const [mutate, {isLoading:loadingMutation}] = useMutationPost();
-    const { register, handleSubmit, watch, errors } = useForm();
+    const {data:DataBook, isLoading:loadingData} = usePost(['dataBook', 'GET']);
+    const [mutate, {isLoading:loadingMutation}] = useMutationBook();
+    const { register, handleSubmit } = useForm();
     let uniqueNumber = new UniqueNumber(true);
     
     const handlePage = (e) => {
@@ -20,11 +20,17 @@ function Admin() {
     }
     
     const handleData = (data) => {
-        mutate({
-            id : uniqueNumber.generate(),
-            title : data.title,
-            author : data.author
-        })
+        mutate(
+            [
+                {
+                    id : uniqueNumber.generate(),
+                    title : data.title,
+                    author : data.author
+                },
+                {
+                    endpoint : 'POST'
+                }
+            ])
     };
 
     if(loadingData) return null;
@@ -32,7 +38,6 @@ function Admin() {
     return(
         <Fragment>
             <Box p='20px'>
-                    
                 <SimpleGrid columns={2}> 
                     <Box pb={['10%','10%','3%','3%']}>
                         <UnorderedList color='fontColorFirst' fontWeight='bold' spacing={1} cursor='pointer'>
@@ -56,7 +61,14 @@ function Admin() {
                         <FormLabel color='white' opacity='.8' mt='2%' htmlFor='author'>Author</FormLabel>
                         <Input layerStyle='inputStyle' id='author' ref={register} name='author' /> <br/>
 
-                        <Button mt={['8%','8%','3%','3%']} bg='#161E20' color='white' opacity='.8' _hover={{background : '#28373F'}} onClick={handleSubmit(handleData)}>Create Book</Button>
+                        <Button 
+                            mt={['8%','8%','3%','3%']} 
+                            bg='#161E20' color='white' 
+                            opacity='.8'
+                             _hover={{background : '#28373F'}} 
+                             onClick={handleSubmit(handleData)}>
+                            {loadingMutation ? 'Saving...' : 'Create Book'}
+                        </Button>
                     </FormControl>
                 </Box>
             </Box>

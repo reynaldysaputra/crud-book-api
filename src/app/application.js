@@ -5,9 +5,9 @@ import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom';
 import Home from '../pages/home';
 import Blog from '../pages/blog';
 import Admin from '../pages/admin';
-import Navigation from '../component/navigation';
-import PageUpdateBook from '../pages/updateBook';
+import Navigation from '../components/navigation';
 import { ReactQueryDevtools } from 'react-query-devtools';
+import PageUpdateBook from '../pages/updateBook';
 
 function App() {
     return(
