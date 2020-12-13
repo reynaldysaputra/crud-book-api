@@ -26,8 +26,6 @@ async function FetchDataMutation(data){
         CheckHeaders('DELETE');
     }
 
-    console.log(HEADERS);
-
     return fetch(ENDPOINT, {
         method : METHOD,
         headers : HEADERS,

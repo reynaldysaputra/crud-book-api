@@ -17,6 +17,7 @@ function Blog() {
                             key={item.id}
                             heading={item.title}
                             text={item.author}
+                            id={item.id}
                         />
                     ))}
                 </SimpleGrid>

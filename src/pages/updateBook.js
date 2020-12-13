@@ -49,7 +49,7 @@ function PageUpdateBook({match}) {
                 <>
                     <Box pt='20px'>
                         <TitleBook heading={dataBook.title} />
-                        <Text my='2%' fontSize='1xl' color='fontColorFirst' fontWeight='bold' cursor='pointer'>View Post</Text>
+                        <Text my='2%' fontSize='1xl' color='fontColorFirst' fontWeight='bold' cursor='pointer' onClick={() => pageHistory.push(`/blog/${dataBook.id}`)}>View Post</Text>
                     </Box>
 
                     <FormControl id="first-name" isRequired mt='2%'>
@@ -65,7 +65,7 @@ function PageUpdateBook({match}) {
                             color='white' 
                             opacity='.8' 
                             _hover={{background : '#28373F'}}
-                            onClick={() => handleSubmit(handleDataUpdate)}>
+                            onClick={handleSubmit(handleDataUpdate)}>
                             Update Book
                         </Button> <br/>
                         <Button 

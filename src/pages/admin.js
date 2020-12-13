@@ -8,15 +8,15 @@ import Loading from '../components/loading';
 import UniqueNumber from 'unique-number';
 
 function Admin() {
-    const pageHistory = useHistory();
     const {data:DataBook, isLoading:loadingData} = usePost(['dataBook', 'GET']);
     const [mutate, {isLoading:loadingMutation}] = useMutationBook();
     const { register, handleSubmit } = useForm();
+    const pageHistory = useHistory();
     let uniqueNumber = new UniqueNumber(true);
     
     const handlePage = (e) => {
         const id = e.target.dataset.id;
-        pageHistory.push(`/blog/${id}`);
+        pageHistory.push(`/admin/${id}`);
     }
     
     const handleData = (data) => {
